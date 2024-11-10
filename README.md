@@ -1,8 +1,9 @@
-## Loan-Default-Risk-Analysis
-# Objective
+# Loan-Default-Risk-Analysis
+
+## Objective
 The primary objective of this project is to build a predictive model to estimate the risk of default on personal loans and to identify the most influential factors affecting loan default. By understanding the drivers of loan risk, we aim to provide insights into borrower behavior and enable data-driven strategies for risk mitigation.
 
-# Data
+## Data
 The dataset consists of loan records containing various features about each loan and borrower, including financial indicators, credit scores, employment length, and loan terms. The data was collected between January 2015 and September 2016, and the loan_status column represents the most recent status as of January 23, 2017. This status is used as the target variable for classification.
 
 The possible values for loan_status include:
@@ -11,7 +12,7 @@ The possible values for loan_status include:
 **"Fully Paid"** – The borrower has repaid the loan in full.
 **"Default"** – The borrower has missed payments, indicating a risk of default.
 
-**Project Overview**
+## Project Overview
 
 **Exploratory Data Analysis (EDA):**
 
@@ -39,7 +40,7 @@ Generated model evaluation metrics, including a confusion matrix and classificat
 
 Extracted and ranked feature importances from the trained model to identify which borrower and loan characteristics are most predictive of default risk.
 
-**Results**
+## Results
 The model results include:
 
 Classification Report: Precision, recall, and F1-score metrics for model performance on identifying loan default risk.
@@ -48,5 +49,5 @@ Confusion Matrix: Visual representation of true positive, true negative, false p
 
 Feature Importance: Ranking of features by importance, revealing the primary drivers of loan default.
 
-**Conclusion**
+## Conclusion
 This project provides a comprehensive analysis of loan default risk, utilizing a robust classification model and feature importance analysis. The findings offer valuable insights into the key predictors of loan performance, enabling more informed lending decisions and enhanced risk management strategies.
