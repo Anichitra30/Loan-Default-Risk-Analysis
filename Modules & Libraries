@@ -1,0 +1,79 @@
+##Modules
+Ensemble
+Model Selection
+Metrics
+Impute
+Preprocessing
+Over_Sampling
+Under_Sampling
+Pipeline
+Linear_Model
+
+##Libraries
+Pandas
+NumPy
+Matplotlib
+Scikit-Learn
+Imbalanced-Learn
+Altair
+
+##Methods
+
+###Ensemble:
+
+- Found in Scikit-Learn (sklearn.ensemble)
+- Contains ensemble learning methods like RandomForestClassifier, GradientBoostingClassifier, VotingClassifier, and more.
+
+###Model Selection:
+
+- Found in Scikit-Learn (sklearn.model_selection)
+- Provides tools for model selection, including train_test_split, cross_val_score, GridSearchCV, and RandomizedSearchCV.
+
+###Metrics:
+
+- Found in Scikit-Learn (sklearn.metrics)
+- Contains performance metrics for evaluation, such as accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, and more.
+
+###Impute:
+
+- Found in Scikit-Learn (sklearn.impute)
+- Used for handling missing data with classes like SimpleImputer and KNNImputer.
+
+###Preprocessing:
+
+- Found in Scikit-Learn (sklearn.preprocessing)
+- Provides data preprocessing tools like StandardScaler, MinMaxScaler, OneHotEncoder, and more.
+
+###Over_Sampling:
+
+- Available in the Imbalanced-Learn library (imblearn.over_sampling)
+- Contains methods to handle imbalanced data by oversampling, like SMOTE (Synthetic Minority Over-sampling Technique).
+
+Under_Sampling:
+
+Available in the Imbalanced-Learn library (imblearn.under_sampling)
+Provides under-sampling techniques, such as RandomUnderSampler and TomekLinks, to balance classes by reducing the majority class.
+
+Pipeline:
+
+Found in Scikit-Learn (sklearn.pipeline)
+Allows chaining of transformations and models into a single pipeline, making it easier to manage workflows and hyperparameter tuning.
+
+Linear_Model:
+
+Found in Scikit-Learn (sklearn.linear_model)
+Contains linear models like LinearRegression, LogisticRegression, Ridge, and Lasso for regression and classification tasks.
+
+For using Imbalanced-Learn (imblearn) modules like Over_Sampling and Under_Sampling, you may need to install the library separately with:
+
+**pip install imbalanced-learn**
+
+## Example usage: 
+
+import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+from sklearn.impute import SimpleImputer
+from sklearn.preprocessing import LabelEncoder
+from imblearn.over_sampling import SMOTE
