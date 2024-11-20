@@ -1,0 +1,64 @@
+#1. Default Rates by Loan Purpose and Financial Indicators
+purpose_dti_default = data_pandas.groupby(['purpose', 'dti_category'])['loan_status'].apply(
+    lambda x: (x == 'Default').sum() / len(x) * 100
+).unstack()
+
+purpose_dti_default.plot(kind='bar', figsize=(12, 6), stacked=True, cmap='viridis')
+plt.title("Default Rates by Loan Purpose and DTI Category")
+plt.xlabel("Loan Purpose")
+plt.ylabel("Default Rate (%)")
+plt.xticks(rotation=45)
+plt.legend(title="DTI Category")
+plt.show()
+
+
+#2. Loan Amount vs. FICO Scores by Loan Purpose
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=data_pandas, x='purpose', y='loan_amnt', hue='fico_category')
+plt.title("Loan Amounts vs. FICO Categories by Loan Purpose")
+plt.xlabel("Loan Purpose")
+plt.ylabel("Loan Amount")
+plt.xticks(rotation=45)
+plt.legend(title="FICO Category")
+plt.show()
+
+
+#3. Interaction Between Income-to-Loan Ratio and Purpose
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=data_pandas, x='purpose', y='income_to_loan_ratio', hue='loan_status')
+plt.title("Income-to-Loan Ratio by Loan Purpose and Loan Status")
+plt.xlabel("Loan Purpose")
+plt.ylabel("Income-to-Loan Ratio")
+plt.xticks(rotation=45)
+plt.legend(title="Loan Status")
+plt.show()
+
+
+#4. Default Rate by Loan Purpose and Verification Status
+purpose_verification_default = data_pandas.groupby(['purpose', 'verification_status'])['loan_status'].apply(
+    lambda x: (x == 'Default').sum() / len(x) * 100
+).unstack()
+
+purpose_verification_default.plot(kind='bar', figsize=(12, 6), stacked=True, cmap='plasma')
+plt.title("Default Rates by Loan Purpose and Verification Status")
+plt.xlabel("Loan Purpose")
+plt.ylabel("Default Rate (%)")
+plt.xticks(rotation=45)
+plt.legend(title="Verification Status")
+plt.show()
+
+#5. Clustering Loan Purposes by Financial Indicators
+from sklearn.cluster import KMeans
+financial_features = ['fico_range_low', 'dti', 'income_to_loan_ratio']
+X = data_pandas[financial_features].dropna()
+kmeans = KMeans(n_clusters=3, random_state=42)
+data_pandas['cluster'] = kmeans.fit_predict(X)
+
+sns.scatterplot(
+    data=data_pandas, x='fico_range_low', y='dti', hue='cluster', style='purpose', palette='deep'
+)
+plt.title("Clusters of Loan Purposes by Financial Indicators")
+plt.xlabel("FICO Score (Low)")
+plt.ylabel("Debt-to-Income Ratio")
+plt.legend(title="Cluster & Purpose")
+plt.show()
